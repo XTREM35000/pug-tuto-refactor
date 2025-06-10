@@ -1,17 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
-
-body {
-  @apply font-sans;
-  margin-top: 4rem; /* Pour compenser la navbar fixe */
-}
-
-.prose {
-  @apply max-w-none;
-}
 
 @layer base {
   html {
@@ -19,16 +10,36 @@ body {
   }
 
   body {
-    font-family: 'Lora', serif;
-    line-height: 1.6;
+    @apply font-sans text-gray-800 antialiased;
+    margin-top: 5rem;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Open Sans', sans-serif;
+    @apply font-serif;
   }
 }
 
 @layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-700 hover:bg-gray-200 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-16 sm:py-24;
+  }
+
   .masthead {
     position: relative;
     background-size: cover;
@@ -57,4 +68,14 @@ body {
     text-align: center;
     color: white;
   }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
 }
