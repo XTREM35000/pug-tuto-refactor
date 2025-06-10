@@ -14,6 +14,9 @@ export default defineConfig({
     assetsDir: 'assets',
     rollupOptions: {
       output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+        },
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name.split('.')
           const ext = info[info.length - 1]
@@ -29,5 +32,6 @@ export default defineConfig({
     port: 3000,
     open: true
   },
-  publicDir: 'public'
+  publicDir: 'public',
+  base: '/'
 })
