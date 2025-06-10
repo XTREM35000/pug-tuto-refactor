@@ -73,7 +73,7 @@ const TutoWord = () => {
       <Masthead
         title="Tutoriels Microsoft Word"
         subtitle="Maîtrisez Word de A à Z avec nos guides complets"
-        backgroundImage="/tutoriels-bg.jpg"
+        backgroundImage="tutoriels-bg.jpg"
       />
 
       <div className="py-16 bg-white">

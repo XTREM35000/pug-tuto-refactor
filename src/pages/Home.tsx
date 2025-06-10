@@ -33,7 +33,7 @@ const Home = () => {
       <Masthead
         title="Thierry Gogo"
         subtitle="Expert Développement Web & Rédaction Technique"
-        backgroundImage={getImagePath('/images/home-bg.jpg')}
+        backgroundImage={getImagePath('home-bg.jpg')}
       />
 
       <div className="py-16 bg-white">

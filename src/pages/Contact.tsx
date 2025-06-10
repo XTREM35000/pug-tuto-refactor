@@ -31,7 +31,7 @@ const Contact = () => {
       <Masthead
         title="Contact"
         subtitle="Parlons de votre projet ensemble"
-        backgroundImage="/images/contact-bg.jpg"
+        backgroundImage="contact-bg.jpg"
       />
 
       <div className="py-16 bg-white">
