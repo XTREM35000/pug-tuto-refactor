@@ -17,7 +17,7 @@ const Masthead: React.FC<MastheadProps> = ({ title, subtitle, backgroundImage })
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(${backgroundImage})`,
+          backgroundImage: `url(${getImagePath(backgroundImage)})`,
           filter: 'brightness(0.85) contrast(1.1) saturate(1.1)',
         }}
       />

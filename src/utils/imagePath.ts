@@ -6,16 +6,11 @@ export const getImagePath = (path: string): string => {
     return path
   }
 
-  // Si c'est une image importée (commence par /assets)
-  if (path.startsWith('/assets')) {
+  // Si le chemin commence par /images, on le garde tel quel
+  if (path.startsWith('/images')) {
     return path
   }
 
-  // En production, on utilise le chemin relatif à partir de /assets
-  if (!isDevelopment) {
-    return path.replace('/src/assets', '/assets')
-  }
-
-  // En développement, on garde le chemin complet
-  return path
+  // Pour tous les autres cas, on s'assure que le chemin commence par /images
+  return path.replace(/^\/src\/assets\/img/, '/images')
 }
