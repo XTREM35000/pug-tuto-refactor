@@ -9,14 +9,27 @@ interface MastheadProps {
 
 const Masthead: React.FC<MastheadProps> = ({ title, subtitle, backgroundImage }) => {
   return (
-    <div
-      className="relative bg-cover bg-center h-[60vh] flex items-center justify-center"
-      style={{ backgroundImage: `url(${getImagePath(backgroundImage)})` }}
-    >
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      <div className="relative z-10 text-center text-white px-4">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
-        <p className="text-xl md:text-2xl">{subtitle}</p>
+    <div className="relative h-[25vh] min-h-[250px] flex items-center justify-center">
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/40 z-10" />
+
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${getImagePath(backgroundImage)})`,
+          filter: 'brightness(0.85) contrast(1.1) saturate(1.1)',
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 leading-tight tracking-tight">
+          {title}
+        </h1>
+        <p className="text-base sm:text-lg text-gray-200 font-light max-w-3xl mx-auto leading-relaxed">
+          {subtitle}
+        </p>
       </div>
     </div>
   )
