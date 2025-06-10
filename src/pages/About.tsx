@@ -15,7 +15,7 @@ const About = () => {
       <Masthead
         title="À Propos de Moi"
         subtitle="Expertise en Développement Web & Rédaction Technique"
-        backgroundImage="/src/assets/img/about-bg.jpg"
+        backgroundImage="/assets/img/about-bg.jpg"
       />
 
       <div className="py-16 bg-white">

@@ -14,7 +14,14 @@ export default defineConfig({
     assetsDir: 'assets',
     rollupOptions: {
       output: {
-        assetFileNames: 'assets/[name].[ext]'
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name.split('.')
+          const ext = info[info.length - 1]
+          if (/\.(png|jpe?g|gif|svg|webp)$/.test(assetInfo.name)) {
+            return `assets/images/[name][extname]`
+          }
+          return `assets/[name][extname]`
+        }
       }
     }
   },
