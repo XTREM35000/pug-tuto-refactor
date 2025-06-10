@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "clean": "rimraf dist public",
+    "build:dev": "vite build --mode development",
     "prebuild": "npm run clean",
     "build": "npm run verify:assets && npm run prebuild && concurrently -n \"ASSETS,PUG,SCSS\" -c \"bgBlue.bold,bgGreen.bold,bgMagenta.bold\" \"npm run build:assets\" \"npm run build:pug\" \"npm run build:scss\" && node scripts/build.js && node scripts/post-build.js && node scripts/verify-build.js",
     "build:assets": "node scripts/build-assets.js",
