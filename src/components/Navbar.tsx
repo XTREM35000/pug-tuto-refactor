@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import {
@@ -121,7 +122,7 @@ const Navbar = () => {
             >
               <Link to="/" className="flex items-center space-x-3">
                 <motion.img
-                  src="/src/assets/img/profile/profile01.png"
+                  src="/assets/img/profile/profile01.png"
                   alt="Thierry Gogo Logo"
                   className="h-12 w-auto rounded-full"
                   whileHover={{ rotate: 360 }}

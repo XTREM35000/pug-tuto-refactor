@@ -33,7 +33,7 @@ const Home = () => {
       <Masthead
         title="Thierry Gogo"
         subtitle="Expert Développement Web & Rédaction Technique"
-        backgroundImage="/src/assets/img/home-bg.jpg"
+        backgroundImage="/assets/img/home-bg.jpg"
       />
 
       <div className="py-16 bg-white">
@@ -83,7 +83,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <img
-                src="/src/assets/img/word/word.png"
+                src="/assets/img/word/word.png"
                 alt="Tutoriel Word"
                 className="w-full h-48 object-cover"
               />
@@ -103,7 +103,7 @@ const Home = () => {
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <img
-                src="/src/assets/img/excel/excel.png"
+                src="/assets/img/excel/excel.png"
                 alt="Tutoriel Excel"
                 className="w-full h-48 object-cover"
               />
@@ -118,7 +118,7 @@ const Home = () => {
 
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <img
-                src="/src/assets/img/ppoint/ppoint.png"
+                src="/assets/img/ppoint/ppoint.png"
                 alt="Tutoriel PowerPoint"
                 className="w-full h-48 object-cover"
               />
