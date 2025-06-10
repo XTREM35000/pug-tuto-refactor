@@ -1,10 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Home,
+  User,
+  Mail,
+  BookOpen,
+  FileText,
+  Table,
+  Presentation,
+  Database,
+  Linkedin,
+  Twitter,
+  Phone
+} from 'lucide-react'
+import { toast } from 'sonner'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isTutorialsOpen, setIsTutorialsOpen] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
@@ -15,106 +33,272 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const handleTutorialClick = (tutorial: string) => {
+    if (tutorial !== 'word') {
+      toast.info('Ce tutoriel sera bientôt disponible !')
+    }
+  }
+
+  const tutorials = [
+    { id: 'word', label: 'Tutoriels Word', href: '/tuto-word', icon: FileText },
+    { id: 'excel', label: 'Tutoriels Excel', href: '#', icon: Table },
+    { id: 'powerpoint', label: 'Tutoriels PowerPoint', href: '#', icon: Presentation },
+    { id: 'access', label: 'Tutoriels Access', href: '#', icon: Database }
+  ]
+
   const navItems = [
-    { href: '/', label: 'Accueil' },
-    { href: '/tuto-word', label: 'Tutoriels Word' },
-    { href: '/contact', label: 'Contact' },
-    { href: '/about', label: 'À Propos' },
+    { href: '/', label: 'Accueil', icon: Home },
+    { href: '/contact', label: 'Contact', icon: Mail },
+    { href: '/about', label: 'À Propos', icon: User },
+  ]
+
+  const socialLinks = [
+    { href: '#', icon: Linkedin, label: 'LinkedIn' },
+    { href: '#', icon: Twitter, label: 'Twitter' }
   ]
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top bar */}
-      <div className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-2">
+      <motion.div
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className="bg-gradient-to-r from-blue-900 to-blue-800 text-white py-2"
+      >
         <div className="container-custom flex justify-between items-center text-sm">
           <div className="flex items-center space-x-4">
-            <a href="mailto:2024dibo@gmail.com" className="hover:text-blue-200 transition-colors">
-              2024dibo@gmail.com
-            </a>
-            <a href="tel:+2250758966156" className="hover:text-blue-200 transition-colors">
-              +225 07 58 96 61 56
-            </a>
+            <motion.a
+              href="mailto:2024dibo@gmail.com"
+              className="hover:text-blue-200 transition-colors flex items-center space-x-2"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Mail className="w-4 h-4" />
+              <span>2024dibo@gmail.com</span>
+            </motion.a>
+            <motion.a
+              href="tel:+2250758966156"
+              className="hover:text-blue-200 transition-colors flex items-center space-x-2"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Phone className="w-4 h-4" />
+              <span>+225 07 58 96 61 56</span>
+            </motion.a>
           </div>
           <div className="flex items-center space-x-4">
-            <a href="#" className="hover:text-blue-200 transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-blue-200 transition-colors">Twitter</a>
+            {socialLinks.map((social) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                className="hover:text-blue-200 transition-colors"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <social.icon className="w-4 h-4" />
+              </motion.a>
+            ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Main navbar */}
-      <nav className={`transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-sm shadow-lg'
-          : 'bg-white/80 backdrop-blur-sm'
-      }`}>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ delay: 0.2 }}
+        className={`transition-all duration-300 ${
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-sm shadow-lg'
+            : 'bg-white/80 backdrop-blur-sm'
+        }`}
+      >
         <div className="container-custom">
           <div className="flex justify-between items-center h-20">
-            <Link to="/" className="flex items-center space-x-3">
-              <img
-                src="/src/assets/img/profile/profile01.png"
-                alt="Thierry Gogo Logo"
-                className="h-12 w-auto rounded-full"
-              />
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                  Thierry Gogo
-                </span>
-                <span className="text-sm text-gray-600">Formation Office</span>
-              </div>
-            </Link>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Link to="/" className="flex items-center space-x-3">
+                <motion.img
+                  src="/src/assets/img/profile/profile01.png"
+                  alt="Thierry Gogo Logo"
+                  className="h-12 w-auto rounded-full"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                />
+                <div className="flex flex-col">
+                  <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                    Thierry Gogo
+                  </span>
+                  <span className="text-sm text-gray-600">Formation Office</span>
+                </div>
+              </Link>
+            </motion.div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1">
               {navItems.map((item) => (
-                <Link
+                <motion.div
                   key={item.href}
-                  to={item.href}
-                  className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                    location.pathname === item.href
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    to={item.href}
+                    className={`flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                      location.pathname === item.href
+                        ? 'text-blue-600 bg-blue-50'
+                        : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    }`}
+                  >
+                    <item.icon className="w-4 h-4" />
+                    <span>{item.label}</span>
+                  </Link>
+                </motion.div>
+              ))}
+
+              {/* Tutorials Dropdown */}
+              <div className="relative">
+                <motion.button
+                  onClick={() => setIsTutorialsOpen(!isTutorialsOpen)}
+                  className={`flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                    isTutorialsOpen || location.pathname.startsWith('/tuto-')
                       ? 'text-blue-600 bg-blue-50'
                       : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                   }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  {item.label}
-                </Link>
-              ))}
+                  <BookOpen className="w-4 h-4" />
+                  <span>Vos Tutoriels</span>
+                  <motion.div
+                    animate={{ rotate: isTutorialsOpen ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ChevronDown className="w-4 h-4" />
+                  </motion.div>
+                </motion.button>
+
+                <AnimatePresence>
+                  {isTutorialsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
+                    >
+                      {tutorials.map((tutorial) => (
+                        <motion.div
+                          key={tutorial.id}
+                          whileHover={{ x: 5 }}
+                        >
+                          <Link
+                            to={tutorial.href}
+                            onClick={() => {
+                              handleTutorialClick(tutorial.id)
+                              setIsTutorialsOpen(false)
+                            }}
+                            className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                          >
+                            <tutorial.icon className="w-4 h-4" />
+                            <span>{tutorial.label}</span>
+                          </Link>
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
 
             {/* Mobile menu button */}
             <div className="md:hidden flex items-center">
-              <button
+              <motion.button
                 onClick={() => setIsOpen(!isOpen)}
                 className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden bg-white border-t">
-            <div className="container-custom py-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className={`block px-4 py-3 rounded-lg text-base font-medium ${
-                    location.pathname === item.href
-                      ? 'bg-blue-50 text-blue-600'
-                      : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
-                  }`}
-                  onClick={() => setIsOpen(false)}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden bg-white border-t"
+            >
+              <div className="container-custom py-2">
+                {navItems.map((item) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Link
+                      to={item.href}
+                      className={`flex items-center space-x-2 px-4 py-3 rounded-lg text-base font-medium ${
+                        location.pathname === item.href
+                          ? 'bg-blue-50 text-blue-600'
+                          : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <item.icon className="w-5 h-5" />
+                      <span>{item.label}</span>
+                    </Link>
+                  </motion.div>
+                ))}
+
+                {/* Mobile Tutorials */}
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.2, delay: 0.1 }}
+                  className="px-4 py-3"
                 >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
+                  <div className="flex items-center space-x-2 text-base font-medium text-gray-700 mb-2">
+                    <BookOpen className="w-5 h-5" />
+                    <span>Vos Tutoriels</span>
+                  </div>
+                  <div className="pl-4 space-y-2">
+                    {tutorials.map((tutorial) => (
+                      <motion.div
+                        key={tutorial.id}
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.2, delay: 0.2 }}
+                      >
+                        <Link
+                          to={tutorial.href}
+                          onClick={() => {
+                            handleTutorialClick(tutorial.id)
+                            setIsOpen(false)
+                          }}
+                          className="flex items-center space-x-2 py-2 text-sm text-gray-600 hover:text-blue-600"
+                        >
+                          <tutorial.icon className="w-4 h-4" />
+                          <span>{tutorial.label}</span>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.nav>
     </header>
   )
 }
