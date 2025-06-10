@@ -148,3 +148,49 @@ npm run clean      # Nettoyage du dossier dist
 - SCSS pour les styles
 - Build automatisé avec npm scripts
 - Structure de dossiers optimisée pour le développement
+
+## Migration vers Vite et React
+
+### Problème initial
+- Les images ne s'affichaient pas correctement après le déploiement sur Vercel
+- Les images fonctionnaient en local mais pas en production
+- Structure des dossiers d'images non optimale pour Vercel
+
+### Solution apportée
+1. Réorganisation des images :
+   - Déplacement de toutes les images dans le dossier `public/images`
+   - Création de sous-dossiers spécifiques (`profile`, `logo`, `bg`, etc.)
+   - Suppression des dossiers redondants
+
+2. Mise à jour de la gestion des chemins d'images :
+   - Modification de la fonction `getImagePath` dans `src/utils/imagePath.ts`
+   - Simplification de la logique de gestion des chemins
+   - Suppression de la logique conditionnelle inutile
+
+3. Configuration Vercel :
+   - Mise à jour du fichier `vercel.json` pour gérer correctement les routes
+   - Configuration des règles de routage pour les assets
+   - Optimisation de la configuration de build
+
+4. Configuration Vite :
+   - Simplification de la configuration dans `vite.config.ts`
+   - Optimisation de la gestion des assets
+   - Configuration correcte du dossier public
+
+### Résultats
+- ✅ Images correctement affichées en local
+- ✅ Images correctement affichées en production sur Vercel
+- ✅ Structure de dossiers plus propre et maintenable
+- ✅ Meilleure performance grâce à l'optimisation des assets
+
+### Commandes de déploiement
+```bash
+npm run build      # Construction du projet
+npm run deploy     # Déploiement sur Vercel
+```
+
+### Notes techniques
+- Utilisation de Vite comme bundler
+- React comme framework frontend
+- Configuration optimisée pour Vercel
+- Structure de dossiers standardisée pour les assets

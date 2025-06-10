@@ -14,7 +14,8 @@
     "start": "vite preview",
     "dev": "vite",
     "preview": "vite preview",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "deploy": "vercel deploy --prod"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.2.1",

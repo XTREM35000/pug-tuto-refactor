@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
   Menu,
   X,
@@ -25,6 +25,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isTutorialsOpen, setIsTutorialsOpen] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,10 +35,21 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Fermer le menu mobile lors du changement de route
+  useEffect(() => {
+    setIsOpen(false)
+    setIsTutorialsOpen(false)
+  }, [location])
+
   const handleTutorialClick = (tutorial: string) => {
     if (tutorial !== 'word') {
       toast.info('Ce tutoriel sera bientôt disponible !')
     }
+  }
+
+  const handleNavigation = (path: string) => {
+    if (location.pathname === path) return
+    navigate(path)
   }
 
   const tutorials = [
@@ -145,8 +157,8 @@ const Navbar = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Link
-                    to={item.href}
+                  <button
+                    onClick={() => handleNavigation(item.href)}
                     className={`flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                       location.pathname === item.href
                         ? 'text-blue-600 bg-blue-50'
@@ -155,7 +167,7 @@ const Navbar = () => {
                   >
                     <item.icon className="w-4 h-4" />
                     <span>{item.label}</span>
-                  </Link>
+                  </button>
                 </motion.div>
               ))}
 
@@ -195,17 +207,18 @@ const Navbar = () => {
                           key={tutorial.id}
                           whileHover={{ x: 5 }}
                         >
-                          <Link
-                            to={tutorial.href}
+                          <button
                             onClick={() => {
                               handleTutorialClick(tutorial.id)
-                              setIsTutorialsOpen(false)
+                              if (tutorial.id === 'word') {
+                                handleNavigation(tutorial.href)
+                              }
                             }}
-                            className="flex items-center space-x-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600"
+                            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:text-blue-600 hover:bg-gray-50 flex items-center space-x-2"
                           >
                             <tutorial.icon className="w-4 h-4" />
                             <span>{tutorial.label}</span>
-                          </Link>
+                          </button>
                         </motion.div>
                       ))}
                     </motion.div>
@@ -215,16 +228,18 @@ const Navbar = () => {
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden flex items-center">
-              <motion.button
-                onClick={() => setIsOpen(!isOpen)}
-                className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
-              </motion.button>
-            </div>
+            <motion.button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              {isOpen ? (
+                <X className="w-6 h-6 text-gray-700" />
+              ) : (
+                <Menu className="w-6 h-6 text-gray-700" />
+              )}
+            </motion.button>
           </div>
         </div>
 
@@ -235,66 +250,47 @@ const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }}
               className="md:hidden bg-white border-t"
             >
-              <div className="container-custom py-2">
+              <div className="container-custom py-4 space-y-2">
                 {navItems.map((item) => (
-                  <motion.div
+                  <motion.button
                     key={item.href}
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.2 }}
+                    onClick={() => handleNavigation(item.href)}
+                    className={`w-full flex items-center space-x-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                      location.pathname === item.href
+                        ? 'text-blue-600 bg-blue-50'
+                        : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    }`}
+                    whileHover={{ x: 5 }}
                   >
-                    <Link
-                      to={item.href}
-                      className={`flex items-center space-x-2 px-4 py-3 rounded-lg text-base font-medium ${
-                        location.pathname === item.href
-                          ? 'bg-blue-50 text-blue-600'
-                          : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
-                      }`}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <item.icon className="w-5 h-5" />
-                      <span>{item.label}</span>
-                    </Link>
-                  </motion.div>
+                    <item.icon className="w-4 h-4" />
+                    <span>{item.label}</span>
+                  </motion.button>
                 ))}
 
-                {/* Mobile Tutorials */}
-                <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.2, delay: 0.1 }}
-                  className="px-4 py-3"
-                >
-                  <div className="flex items-center space-x-2 text-base font-medium text-gray-700 mb-2">
-                    <BookOpen className="w-5 h-5" />
-                    <span>Vos Tutoriels</span>
+                <div className="pt-2 border-t">
+                  <div className="px-4 py-2 text-sm font-medium text-gray-700">
+                    Tutoriels
                   </div>
-                  <div className="pl-4 space-y-2">
-                    {tutorials.map((tutorial) => (
-                      <motion.div
-                        key={tutorial.id}
-                        initial={{ x: -20, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.2, delay: 0.2 }}
-                      >
-                        <Link
-                          to={tutorial.href}
-                          onClick={() => {
-                            handleTutorialClick(tutorial.id)
-                            setIsOpen(false)
-                          }}
-                          className="flex items-center space-x-2 py-2 text-sm text-gray-600 hover:text-blue-600"
-                        >
-                          <tutorial.icon className="w-4 h-4" />
-                          <span>{tutorial.label}</span>
-                        </Link>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
+                  {tutorials.map((tutorial) => (
+                    <motion.button
+                      key={tutorial.id}
+                      onClick={() => {
+                        handleTutorialClick(tutorial.id)
+                        if (tutorial.id === 'word') {
+                          handleNavigation(tutorial.href)
+                        }
+                      }}
+                      className="w-full flex items-center space-x-2 px-4 py-2 text-sm text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                      whileHover={{ x: 5 }}
+                    >
+                      <tutorial.icon className="w-4 h-4" />
+                      <span>{tutorial.label}</span>
+                    </motion.button>
+                  ))}
+                </div>
               </div>
             </motion.div>
           )}
