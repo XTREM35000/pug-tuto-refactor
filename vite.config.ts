@@ -11,27 +11,9 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-        },
-        assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.')
-          const ext = info[info.length - 1]
-          if (/\.(png|jpe?g|gif|svg|webp)$/.test(assetInfo.name)) {
-            return `images/[name][extname]`
-          }
-          return `assets/[name][extname]`
-        }
-      }
-    }
   },
   server: {
     port: 3000,
     open: true
-  },
-  publicDir: 'public',
-  base: '/'
+  }
 })
