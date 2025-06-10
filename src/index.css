@@ -11,7 +11,7 @@
 
   body {
     @apply font-sans text-gray-800 antialiased;
-    margin-top: 5rem;
+    padding-top: 104px; /* Hauteur de la navbar + top bar */
   }
 
   h1, h2, h3, h4, h5, h6 {

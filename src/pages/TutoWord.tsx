@@ -1,6 +1,7 @@
 import React from 'react'
 import Masthead from '../components/Masthead'
 import { Book, Clock, Users } from 'lucide-react'
+import GeneratePDFButton from '../components/GeneratePDFButton'
 
 const TutoWord = () => {
   const tutorials = [
@@ -114,10 +115,13 @@ const TutoWord = () => {
                     {tutorial.description}
                   </p>
 
-                  <button className="w-full bg-blue-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center space-x-2">
-                    <Book className="w-4 h-4" />
-                    <span>Commencer le tutoriel</span>
-                  </button>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <button className="w-full bg-blue-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center space-x-2">
+                      <Book className="w-4 h-4" />
+                      <span>Commencer le tutoriel</span>
+                    </button>
+                    <GeneratePDFButton chapterTitle={tutorial.title} />
+                  </div>
                 </div>
               </div>
             ))}

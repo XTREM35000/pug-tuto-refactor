@@ -50,7 +50,7 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-blue-600" />
                   <div>
                     <h3 className="font-semibold text-gray-900">Email</h3>
-                    <p className="text-gray-600">contact@thierrygogo.com</p>
+                    <p className="text-gray-600">2024dibo@gmail.com</p>
                   </div>
                 </div>
 
@@ -58,7 +58,7 @@ const Contact = () => {
                   <Phone className="w-6 h-6 text-blue-600" />
                   <div>
                     <h3 className="font-semibold text-gray-900">Téléphone</h3>
-                    <p className="text-gray-600">+33 1 23 45 67 89</p>
+                    <p className="text-gray-600">+225 07 58 96 61 56</p>
                   </div>
                 </div>
 
@@ -66,7 +66,7 @@ const Contact = () => {
                   <MapPin className="w-6 h-6 text-blue-600" />
                   <div>
                     <h3 className="font-semibold text-gray-900">Localisation</h3>
-                    <p className="text-gray-600">France</p>
+                    <p className="text-gray-600">Riviera 3/ Abidjan</p>
                   </div>
                 </div>
               </div>
