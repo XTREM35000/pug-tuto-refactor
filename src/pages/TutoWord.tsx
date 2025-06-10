@@ -1,4 +1,4 @@
-
+import React from 'react'
 import Masthead from '../components/Masthead'
 import { Book, Clock, Users } from 'lucide-react'
 
@@ -69,12 +69,12 @@ const TutoWord = () => {
 
   return (
     <>
-      <Masthead 
+      <Masthead
         title="Tutoriels Microsoft Word"
         subtitle="Maîtrisez Word de A à Z avec nos guides complets"
         backgroundImage="/src/assets/img/tutoriels-bg.jpg"
       />
-      
+
       <div className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -82,16 +82,16 @@ const TutoWord = () => {
               Cours Gratuits Microsoft Word
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Découvrez nos tutoriels gratuits pour apprendre à utiliser Microsoft Word efficacement, 
+              Découvrez nos tutoriels gratuits pour apprendre à utiliser Microsoft Word efficacement,
               du niveau débutant au niveau avancé.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {tutorials.map((tutorial) => (
               <div key={tutorial.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <img 
-                  src={tutorial.image} 
+                <img
+                  src={tutorial.image}
                   alt={tutorial.title}
                   className="w-full h-48 object-cover"
                 />
@@ -105,15 +105,15 @@ const TutoWord = () => {
                       {tutorial.duration}
                     </div>
                   </div>
-                  
+
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {tutorial.title}
                   </h3>
-                  
+
                   <p className="text-gray-600 mb-4">
                     {tutorial.description}
                   </p>
-                  
+
                   <button className="w-full bg-blue-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center space-x-2">
                     <Book className="w-4 h-4" />
                     <span>Commencer le tutoriel</span>
@@ -122,7 +122,7 @@ const TutoWord = () => {
               </div>
             ))}
           </div>
-          
+
           <div className="mt-16 bg-blue-50 rounded-lg p-8">
             <div className="text-center">
               <Users className="w-12 h-12 mx-auto text-blue-600 mb-4" />
@@ -130,11 +130,11 @@ const TutoWord = () => {
                 Besoin d'un accompagnement personnalisé ?
               </h3>
               <p className="text-gray-600 mb-6">
-                Je propose également des formations individuelles et des sessions de coaching 
+                Je propose également des formations individuelles et des sessions de coaching
                 pour vous aider à maîtriser Word selon vos besoins spécifiques.
               </p>
-              <a 
-                href="/contact" 
+              <a
+                href="/contact"
                 className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
               >
                 Demander une formation

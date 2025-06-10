@@ -1,4 +1,4 @@
-
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Masthead from '../components/Masthead'
 import { FileText, Code, BookOpen, Users } from 'lucide-react'
@@ -29,12 +29,12 @@ const Home = () => {
 
   return (
     <>
-      <Masthead 
+      <Masthead
         title="Thierry Gogo"
         subtitle="Expert Développement Web & Rédaction Technique"
         backgroundImage="/src/assets/img/home-bg.jpg"
       />
-      
+
       <div className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -46,7 +46,7 @@ const Home = () => {
               de la conception à la réalisation.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <div key={index} className="text-center p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow duration-300">
@@ -56,10 +56,10 @@ const Home = () => {
               </div>
             ))}
           </div>
-          
+
           <div className="text-center mt-12">
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
             >
               Demander un Devis
@@ -67,7 +67,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -78,12 +78,12 @@ const Home = () => {
               Apprenez à maîtriser les outils Microsoft Office avec mes guides détaillés
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img 
-                src="/src/assets/img/word/word.png" 
-                alt="Tutoriel Word" 
+              <img
+                src="/src/assets/img/word/word.png"
+                alt="Tutoriel Word"
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
@@ -91,19 +91,19 @@ const Home = () => {
                 <p className="text-gray-600 mb-4">
                   Maîtrisez toutes les fonctionnalités de Word, de la mise en forme au publipostage.
                 </p>
-                <Link 
-                  to="/tuto-word" 
+                <Link
+                  to="/tuto-word"
                   className="text-blue-600 hover:text-blue-800 font-semibold"
                 >
                   Voir les tutoriels →
                 </Link>
               </div>
             </div>
-            
+
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img 
-                src="/src/assets/img/excel/excel.png" 
-                alt="Tutoriel Excel" 
+              <img
+                src="/src/assets/img/excel/excel.png"
+                alt="Tutoriel Excel"
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
@@ -114,11 +114,11 @@ const Home = () => {
                 <span className="text-gray-400">Bientôt disponible</span>
               </div>
             </div>
-            
+
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img 
-                src="/src/assets/img/ppoint/ppoint.png" 
-                alt="Tutoriel PowerPoint" 
+              <img
+                src="/src/assets/img/ppoint/ppoint.png"
+                alt="Tutoriel PowerPoint"
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">

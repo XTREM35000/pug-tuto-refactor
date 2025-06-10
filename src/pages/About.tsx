@@ -1,4 +1,4 @@
-
+import React from 'react'
 import Masthead from '../components/Masthead'
 import { CheckCircle } from 'lucide-react'
 
@@ -12,18 +12,18 @@ const About = () => {
 
   return (
     <>
-      <Masthead 
+      <Masthead
         title="À Propos de Moi"
         subtitle="Expertise en Développement Web & Rédaction Technique"
         backgroundImage="/src/assets/img/about-bg.jpg"
       />
-      
+
       <div className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Mon Expertise</h2>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Passionné par le développement web et la rédaction technique, je mets mon expertise au service 
+              Passionné par le développement web et la rédaction technique, je mets mon expertise au service
               de vos projets pour créer des solutions innovantes et efficaces.
             </p>
 
@@ -31,7 +31,7 @@ const About = () => {
               <div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">Développement Web</h3>
                 <p className="text-gray-600 mb-4">
-                  Fort de plusieurs années d'expérience dans le développement web, je maîtrise les technologies 
+                  Fort de plusieurs années d'expérience dans le développement web, je maîtrise les technologies
                   modernes (HTML5, CSS3, JavaScript, React, TypeScript) et les frameworks populaires.
                 </p>
                 <p className="text-gray-600">
@@ -42,7 +42,7 @@ const About = () => {
               <div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">Rédaction Technique</h3>
                 <p className="text-gray-600 mb-4">
-                  Spécialisé dans la rédaction technique et la documentation, je transforme des concepts 
+                  Spécialisé dans la rédaction technique et la documentation, je transforme des concepts
                   complexes en contenus clairs et accessibles.
                 </p>
                 <p className="text-gray-600">
@@ -62,8 +62,8 @@ const About = () => {
             </div>
 
             <div className="text-center mt-12">
-              <a 
-                href="/contact" 
+              <a
+                href="/contact"
                 className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
               >
                 Me Contacter

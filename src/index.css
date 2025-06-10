@@ -1,18 +1,28 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
+
+body {
+  @apply font-sans;
+  margin-top: 4rem; /* Pour compenser la navbar fixe */
+}
+
+.prose {
+  @apply max-w-none;
+}
 
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     font-family: 'Lora', serif;
     line-height: 1.6;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Open Sans', sans-serif;
   }
@@ -29,7 +39,7 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .masthead::before {
     content: '';
     position: absolute;
@@ -40,7 +50,7 @@
     background: rgba(0, 0, 0, 0.4);
     z-index: 1;
   }
-  
+
   .masthead-content {
     position: relative;
     z-index: 2;
