@@ -1,0 +1,128 @@
+doctype html
+html(lang='fr')
+
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='Contactez Thierry Gogo pour vos projets de développement web et rédaction technique')
+        meta(name='author', content='Thierry Gogo')
+
+        title Contact - Thierry Gogo | Développement Web & Rédaction Technique
+
+        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+
+        include includes/css.pug
+
+    body
+
+        include includes/navbar.pug
+
+        // Page Header
+        header.masthead(style="background-image: url('/assets/img/contact-bg.jpg')")
+            .container.position-relative.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.justify-content-center
+                    .col-md-10.col-lg-8.col-xl-7
+                        .page-heading
+                            h1 Contactez-moi
+                            span.subheading Discutons de votre projet
+
+        // Main Content
+        main.mb-4
+            .container.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.justify-content-center
+                    .col-md-10.col-lg-8.col-xl-7
+                        .row.mb-5
+                            .col-md-6
+                                h3.h4.mb-3
+                                    i.fas.fa-envelope.text-primary.me-2
+                                    | Email
+                                p.mb-0
+                                    a(href='mailto:contact@thierrygogo.com') contact@thierrygogo.com
+                            .col-md-6
+                                h3.h4.mb-3
+                                    i.fas.fa-phone.text-primary.me-2
+                                    | Téléphone
+                                p.mb-0 +225 07 58 96 61 56
+
+                        hr.my-5
+
+                        h2.text-center.mb-4 Formulaire de Contact
+                        p.text-center.mb-5
+                            | Pour toute demande de devis ou information complémentaire, n'hésitez pas à me contacter via le formulaire ci-dessous.
+
+                        form#contactForm.needs-validation(data-sb-form-api-token='API_TOKEN', novalidate)
+                            .form-floating.mb-3
+                                input#name.form-control(
+                                    type='text',
+                                    placeholder='Votre nom',
+                                    data-sb-validations='required'
+                                )
+                                label(for='name') Nom complet
+                                .invalid-feedback(data-sb-feedback='name:required')
+                                    | Veuillez indiquer votre nom.
+
+                            .form-floating.mb-3
+                                input#email.form-control(
+                                    type='email',
+                                    placeholder='Votre email',
+                                    data-sb-validations='required,email'
+                                )
+                                label(for='email') Adresse email
+                                .invalid-feedback(data-sb-feedback='email:required')
+                                    | Veuillez indiquer votre email.
+                                .invalid-feedback(data-sb-feedback='email:email')
+                                    | L'adresse email n'est pas valide.
+
+                            .form-floating.mb-3
+                                input#phone.form-control(
+                                    type='tel',
+                                    placeholder='Votre téléphone',
+                                    data-sb-validations='required'
+                                )
+                                label(for='phone') Numéro de téléphone
+                                .invalid-feedback(data-sb-feedback='phone:required')
+                                    | Veuillez indiquer votre numéro de téléphone.
+
+                            .form-floating.mb-3
+                                select#subject.form-control(
+                                    data-sb-validations='required'
+                                )
+                                    option(value='') Sélectionnez...
+                                    option(value='dev-web') Développement Web
+                                    option(value='redaction') Rédaction Technique
+                                    option(value='autre') Autre
+                                label(for='subject') Type de projet
+                                .invalid-feedback(data-sb-feedback='subject:required')
+                                    | Veuillez sélectionner le type de projet.
+
+                            .form-floating.mb-3
+                                textarea#message.form-control(
+                                    placeholder='Votre message',
+                                    style='height: 12rem;',
+                                    data-sb-validations='required'
+                                )
+                                label(for='message') Message
+                                .invalid-feedback(data-sb-feedback='message:required')
+                                    | Veuillez écrire votre message.
+
+                            // Submit success message
+                            #submitSuccessMessage.d-none
+                                .text-center.mb-3.mt-4
+                                    .fw-bolder Message envoyé avec succès !
+                                    | Je vous répondrai dans les plus brefs délais.
+
+                            // Submit error message
+                            #submitErrorMessage.d-none
+                                .text-center.text-danger.mb-3 Erreur lors de l'envoi du message.
+
+                            .d-grid.gap-2.mt-4
+                                button#submitButton.btn.btn-primary.btn-lg(type='submit')
+                                    i.fas.fa-paper-plane.me-2
+                                    | Envoyer le message
+
+        include includes/footer.pug
+
+        include includes/scripts.pug
+
+        script(src='https://cdn.startbootstrap.com/sb-forms-latest.js')

@@ -1,0 +1,123 @@
+//
+// Masthead
+//
+
+header.masthead {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background: no-repeat center center;
+    background-color: $gray-600;
+    background-attachment: scroll;
+    background-size: cover;
+    min-height: 400px; // Hauteur minimale fixe
+    display: flex;
+    align-items: center;
+
+    // Create the overlay for the masthead
+    // Modify the overlay color and opacity in src/variables/overlay.scss
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    // Set color for all headings
+    .page-heading,
+    .post-heading,
+    .site-heading {
+        color: $white;
+        position: relative; // Pour être au-dessus de l'overlay
+        width: 100%;
+    }
+
+    // Styling shared by site and page heading
+    .page-heading {
+        text-align: center;
+        padding: 2rem 0;
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .subheading {
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.1;
+            display: block;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    // Styling specific to post headings
+    .post-heading {
+        h1 {
+            font-size: 2.25rem;
+        }
+
+        .meta,
+        .subheading {
+            line-height: 1.1;
+            display: block;
+        }
+
+        .subheading {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0.75rem 0 2rem;
+            font-family: $headings-font-family;
+        }
+
+        .meta {
+            font-size: 1.25rem;
+            font-weight: 300;
+            font-style: italic;
+            font-family: $font-family-base;
+
+            a {
+                color: $white;
+            }
+        }
+    }
+
+    // Desktop styling for headings
+    @include media-breakpoint-up(lg) {
+        min-height: 500px; // Hauteur minimale plus grande sur desktop
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+
+        .page-heading {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .subheading {
+                font-size: 1.5rem;
+            }
+        }
+
+        .post-heading {
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .subheading {
+                font-size: 1.875rem;
+            }
+        }
+    }
+}

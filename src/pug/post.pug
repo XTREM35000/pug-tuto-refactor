@@ -1,0 +1,105 @@
+doctype html
+html(lang='fr')
+
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='Services informatiques professionnels : formation bureautique, développement web, solutions sur mesure')
+        meta(name='author', content='Thierry Gogo')
+
+        title Services Informatiques - Thierry Gogo
+
+        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+
+        include includes/css.pug
+
+    body
+
+        include includes/navbar.pug
+
+        // Page Header
+        header.masthead(style="background-image: url('assets/img/bg/bg01.png')")
+            .container.position-relative.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.justify-content-center
+                    .col-md-10.col-lg-8.col-xl-7
+                        .post-heading
+                            h1 Solutions Informatiques Professionnelles
+                            h2.subheading Formation, Développement et Support Technique
+                            span.meta
+                                | Par
+                                a(href='about.html') Thierry Gogo
+                                |  - Expert en Solutions Numériques
+
+        // Post Content
+        article.mb-4
+            .container.px-4.px-lg-5
+                .row.gx-4.gx-lg-5.justify-content-center
+                    .col-md-10.col-lg-8.col-xl-7
+                        h2.section-heading.mb-4 Formation Bureautique
+                        .row.mb-5
+                            .col-md-4.mb-3
+                                img.img-fluid.rounded(src='assets/img/word/mise-en-forme.png', alt='Formation Microsoft Word')
+                            .col-md-8
+                                p.lead Formation Microsoft Word complète pour maîtriser le traitement de texte professionnel.
+                                a.btn.btn-primary.btn-sm(href='/tuto-word') En savoir plus
+
+                        .row.mb-5
+                            .col-md-4.mb-3
+                                img.img-fluid.rounded(src='assets/img/excel/excel.png', alt='Formation Microsoft Excel')
+                            .col-md-8
+                                p.lead Devenez expert en Excel : tableaux croisés dynamiques, formules avancées, macros.
+                                a.btn.btn-primary.btn-sm(href='tuto-excel.html') En savoir plus
+
+                        .row.mb-5
+                            .col-md-4.mb-3
+                                img.img-fluid.rounded(src='assets/img/ppoint/ppoint.png', alt='Formation PowerPoint')
+                            .col-md-8
+                                p.lead Créez des présentations professionnelles impactantes avec PowerPoint.
+                                a.btn.btn-primary.btn-sm(href='tuto-powerpoint.html') En savoir plus
+
+                        h2.section-heading.mb-4 Développement Web
+                        p.lead
+                            | Création de sites web professionnels et d'applications sur mesure pour répondre à vos besoins spécifiques.
+
+                        .row.mb-5
+                            .col-md-6.mb-3
+                                .card.h-100
+                                    img.card-img-top(src='/assets/img/projets/web-dev.jpg', alt='Développement Web', onerror="this.src='/assets/img/placeholder.jpg'")
+                                    .card-body
+                                        h5.card-title Sites Web Professionnels
+                                        p.card-text Sites responsive, optimisés pour le référencement et adaptés à votre image.
+                            .col-md-6.mb-3
+                                .card.h-100
+                                    img.card-img-top(src='/assets/img/projets/app-dev.jpg', alt='Applications Web', onerror="this.src='/assets/img/placeholder.jpg'")
+                                    .card-body
+                                        h5.card-title Applications Web
+                                        p.card-text Solutions personnalisées pour optimiser vos processus métier.
+
+                        h2.section-heading.mb-4 Support Technique
+                        p
+                            | Un accompagnement personnalisé pour résoudre vos problèmes informatiques et optimiser votre environnement de travail.
+
+                        .row.mb-5.text-center
+                            .col-md-4.mb-3
+                                i.fas.fa-laptop.fa-3x.text-primary.mb-3
+                                h5 Maintenance
+                                p Entretien et optimisation de vos équipements
+                            .col-md-4.mb-3
+                                i.fas.fa-network-wired.fa-3x.text-primary.mb-3
+                                h5 Réseau
+                                p Configuration et sécurisation de votre réseau
+                            .col-md-4.mb-3
+                                i.fas.fa-shield-alt.fa-3x.text-primary.mb-3
+                                h5 Sécurité
+                                p Protection de vos données et systèmes
+
+                        .text-center.mt-5
+                            h3.mb-4 Intéressé par nos services ?
+                            a.btn.btn-primary.btn-lg(href='contact.html')
+                                i.fas.fa-envelope.me-2
+                                | Contactez-nous
+
+        include includes/footer.pug
+
+        include includes/scripts.pug
