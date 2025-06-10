@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -6,12 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        'serif': ['Lora', 'serif'],
-        'sans': ['Open Sans', 'sans-serif'],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 }

@@ -1,0 +1,56 @@
+/* Styles de base pour l'application */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styles pour les transitions de page */
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+/* Styles pour le contenu principal */
+.main-content {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+/* Styles pour les images */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Styles pour les cartes */
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Styles pour les boutons */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

@@ -7,6 +7,8 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import TutoWord from './pages/TutoWord'
+import { useState } from 'react'
+import './App.css'
 
 function App() {
   return (

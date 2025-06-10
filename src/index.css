@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,15 +12,15 @@
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
   .btn {
     @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2;
   }
-  
+
   .btn-primary {
     @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
   }
-  
+
   .btn-secondary {
     @apply bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500;
   }

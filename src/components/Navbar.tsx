@@ -122,7 +122,7 @@ const Navbar = () => {
             >
               <Link to="/" className="flex items-center space-x-3">
                 <motion.img
-                  src={getImagePath('/src/assets/img/profile/profile01.png')}
+                  src={getImagePath('/images/profile/profile01.png')}
                   alt="Thierry Gogo Logo"
                   className="h-12 w-auto rounded-full"
                   whileHover={{ rotate: 360 }}

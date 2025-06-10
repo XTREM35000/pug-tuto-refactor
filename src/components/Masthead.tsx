@@ -9,7 +9,7 @@ interface MastheadProps {
 
 const Masthead: React.FC<MastheadProps> = ({ title, subtitle, backgroundImage }) => {
   return (
-    <div className="relative h-[25vh] min-h-[250px] flex items-center justify-center">
+    <div className="relative h-[30vh] min-h-[300px] mt-24 flex items-center justify-center">
       {/* Overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/40 z-10" />
 
@@ -17,7 +17,7 @@ const Masthead: React.FC<MastheadProps> = ({ title, subtitle, backgroundImage })
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(${getImagePath(backgroundImage)})`,
+          backgroundImage: `url(${backgroundImage})`,
           filter: 'brightness(0.85) contrast(1.1) saturate(1.1)',
         }}
       />

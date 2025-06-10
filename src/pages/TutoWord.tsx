@@ -11,7 +11,7 @@ const TutoWord = () => {
       description: 'Découvrez l\'interface et les fonctionnalités de base de Word',
       duration: '15 min',
       level: 'Débutant',
-      image: '/src/assets/img/word/introduction.png'
+      image: '/images/word/introduction.png'
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const TutoWord = () => {
       description: 'Apprenez à formater votre texte avec style et professionnalisme',
       duration: '20 min',
       level: 'Débutant',
-      image: '/src/assets/img/word/mise-en-forme.png'
+      image: '/images/word/mise-en-forme.png'
     },
     {
       id: 3,
@@ -27,7 +27,7 @@ const TutoWord = () => {
       description: 'Maîtrisez l\'insertion et la gestion des images dans vos documents',
       duration: '25 min',
       level: 'Intermédiaire',
-      image: '/src/assets/img/word/insertion-image.png'
+      image: '/images/word/insertion-image.png'
     },
     {
       id: 4,
@@ -35,7 +35,7 @@ const TutoWord = () => {
       description: 'Créez et formatez des tableaux professionnels dans Word',
       duration: '30 min',
       level: 'Intermédiaire',
-      image: '/src/assets/img/word/tableaux.png'
+      image: '/images/word/tableaux.png'
     },
     {
       id: 5,
@@ -43,7 +43,7 @@ const TutoWord = () => {
       description: 'Optimisez la mise en page de vos documents pour un rendu parfait',
       duration: '35 min',
       level: 'Avancé',
-      image: '/src/assets/img/word/mise-en-page.png'
+      image: '/images/word/mise-en-page.png'
     },
     {
       id: 6,
@@ -51,7 +51,7 @@ const TutoWord = () => {
       description: 'Maîtrisez l\'export PDF et les options d\'impression',
       duration: '20 min',
       level: 'Intermédiaire',
-      image: '/src/assets/img/word/export-pdf.png'
+      image: '/images/word/export-pdf.png'
     }
   ]
 
@@ -73,7 +73,7 @@ const TutoWord = () => {
       <Masthead
         title="Tutoriels Microsoft Word"
         subtitle="Maîtrisez Word de A à Z avec nos guides complets"
-        backgroundImage="/src/assets/img/tutoriels-bg.jpg"
+        backgroundImage="/images/tutoriels-bg.jpg"
       />
 
       <div className="py-16 bg-white">
