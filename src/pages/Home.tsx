@@ -1,6 +1,6 @@
-
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { getImagePath } from '../utils/imagePath'
 import Masthead from '../components/Masthead'
 import { FileText, Code, BookOpen, Users } from 'lucide-react'
 
@@ -33,7 +33,7 @@ const Home = () => {
       <Masthead
         title="Thierry Gogo"
         subtitle="Expert Développement Web & Rédaction Technique"
-        backgroundImage="/src/assets/img/home-bg.jpg"
+        backgroundImage={getImagePath('/src/assets/img/home-bg.jpg')}
       />
 
       <div className="py-16 bg-white">

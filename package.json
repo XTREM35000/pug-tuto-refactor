@@ -9,7 +9,7 @@
     "clean": "rimraf dist",
     "build:dev": "vite build --mode development",
     "prebuild": "npm run clean",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && xcopy /E /I /Y src\\assets dist\\assets",
     "vercel-build": "npm run build",
     "start": "vite preview",
     "dev": "vite",
