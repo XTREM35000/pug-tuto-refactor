@@ -6,6 +6,10 @@ export const getImagePath = (path: string): string => {
     return path
   }
 
-  // Pour tous les chemins locaux, on les garde tels quels
+  // Pour les chemins locaux, on s'assure qu'ils commencent par /images/
+  if (!path.startsWith('/images/')) {
+    return `/images/${path}`
+  }
+
   return path
 }
