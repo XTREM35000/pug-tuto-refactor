@@ -6,11 +6,11 @@ export const getImagePath = (path: string): string => {
     return path
   }
 
-  // Si le chemin commence par /images, on le garde tel quel
-  if (path.startsWith('/images')) {
+  // Si le chemin commence par /, on le garde tel quel
+  if (path.startsWith('/')) {
     return path
   }
 
-  // Pour tous les autres cas, on s'assure que le chemin commence par /images
-  return path.replace(/^\/src\/assets\/img/, '/images')
+  // Pour tous les autres cas, on s'assure que le chemin commence par /
+  return path.replace(/^\/src\/assets\/img/, '')
 }
